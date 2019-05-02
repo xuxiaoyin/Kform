@@ -1,30 +1,18 @@
 <template>
 <div id="box">
-	<div class="list">
-    	<h1><span class="triangle_right"></span>我的好友</h1>
-        <ul>
-        	<li>宝贝</li>
-            <li>爸爸</li>
-            <li>妈妈</li>
-            <li>爱人</li>
-            <li>姐姐</li>
-        </ul>
-    </div>
-    <div class="list">
-    	<h1><span class="triangle_right"></span>企业好友</h1>
-        <ul>
-        	<li>阿婷</li>
-            <li>科长</li>
-            <li>阿弟</li>
-            <li>静静</li>
-            <li>伟少</li>
-        </ul>
-    </div>
-    <div class="list">
-    	<h1><span class="triangle_right"></span>黑名单</h1>
-        <ul>
-        	<li>广告</li>
-            <li>微商</li>
+	<div class="list" v-for="(item,_index) in qqList" :key="item.title">
+    	<h1 @click="changeShow(_index)" :class="iNow === _index ? 'active':''">
+        <span class="triangle_right" :class="iNow === _index ? 'triangle_bottom':''"></span>{{item.title}}
+      </h1>
+        <ul :style="{display:iNow === _index ? 'block':'none'}">
+        	<li 
+            v-for="(firend, index) in item.list" 
+            :key="index" 
+            :class="{'active' : index === active}"
+            @click="select(index)"
+          >
+            {{firend}}
+          </li>
         </ul>
     </div>
 </div>
@@ -32,7 +20,43 @@
 
 <script>
 export default {
-  
+  data() {
+    return {
+       qqList: [
+        {
+          title: '品牌',
+          list: ['苹果','小米','荣耀','魅族','华为','三星','OPPO','vivo','乐视','360','中兴','索尼']
+        },
+        {
+          title: '尺寸',
+          list: ['3.0英寸以下','3.0-3.9英寸','4.0-4.5英寸','4.6-4.9英寸','5.0-5.9英寸','6.0英寸以上']
+        },
+        {
+          title: '系统',
+          list: ['安卓(Android)','苹果(IOS)','微软(WindowsPhone)','无','其他']
+        },
+        {
+          title: '网络',
+          list: ['联通3G','双卡单4G','双卡双4G','联通4G','电信4G','移动4G']
+        }
+      ],
+      iNow: '',
+      active: ''
+    }
+  },
+  methods: {
+    changeShow(index) {
+      if(this.iNow === index) {
+        this.iNow = ''
+      } else {
+        this.iNow = index
+      } 
+      this.active = ''  
+    },
+    select(index) {
+      this.active = index
+    }
+  },
 }
 </script>
 

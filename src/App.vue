@@ -2,7 +2,8 @@
   <div id="app">
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <!-- <form-test></form-test> -->
-    <good-select></good-select>
+    <!-- <good-select></good-select> -->
+    <qq-list></qq-list>
   </div>
 </template>
 
@@ -10,13 +11,15 @@
 import HelloWorld from './components/HelloWorld.vue'
 import FormTest from './components/FormTest.vue'
 import GoodSelect from './components/GoodSelect'
+import QqList from './components/QqList'
 
 export default {
   name: 'app',
   components: {
     HelloWorld,
     FormTest,
-    GoodSelect
+    GoodSelect,
+    QqList
   }
 }
 </script>
