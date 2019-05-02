@@ -1,19 +1,22 @@
 <template>
   <div id="app">
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <form-test></form-test>
+    <!-- <form-test></form-test> -->
+    <good-select></good-select>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import FormTest from './components/FormTest.vue'
+import GoodSelect from './components/GoodSelect'
 
 export default {
   name: 'app',
   components: {
     HelloWorld,
-    FormTest
+    FormTest,
+    GoodSelect
   }
 }
 </script>
