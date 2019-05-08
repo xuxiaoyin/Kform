@@ -6,8 +6,7 @@ import List from './views/List.vue'
 import Detail from './views/Detail.vue'
 
 Vue.use(Router)
-
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -17,7 +16,7 @@ export default new Router({
       component: Home,
       children: [
         {path: '', component:List},
-        {path: '/detail/:id', component:Detail},
+        {path: '/detail/:id', component:Detail, props: true},
       ]
     },
     {
@@ -35,3 +34,11 @@ export default new Router({
     }
   ]
 })
+router.beforeEach((to,from,next) => {
+  if (to.path === '/about' && !window.isLogin) {
+    next('/login?redirect='+to.path)
+  } else {
+    next()
+  }
+})
+export default router
