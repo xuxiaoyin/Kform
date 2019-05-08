@@ -1,31 +1,13 @@
 <template>
   <div id="app">
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <!-- <form-test></form-test> -->
-    <!-- <good-select></good-select> -->
-    <!-- <qq-list></qq-list> -->
-    <music-select></music-select>
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link> |
+      <router-link to="/logon">Login</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-import FormTest from './components/FormTest.vue'
-import GoodSelect from './components/GoodSelect'
-import QqList from './components/QqList'
-import MusicSelect from './components/MusicSelect'
-
-export default {
-  name: 'app',
-  components: {
-    HelloWorld,
-    FormTest,
-    GoodSelect,
-    QqList,
-    MusicSelect
-  }
-}
-</script>
 
 <style>
 #app {
